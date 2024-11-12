@@ -1,0 +1,74 @@
+Pour insérer les données dans les tables, nous devons utiliser des commandes SQL INSERT INTO en fonction du modèle relationnel et des valeurs que vous avez fournies.
+
+Données à insérer
+Voici les données à insérer selon l'image fournie (DcLUzM5.png) :
+
+CLIENT	PRODUIT	COMMANDE	DETAIL_COMMANDE
+1, "Dupont", "Jean", "42 Rue Paris", "jean@exemple.com", "0102030405"	101, "Tapis de course", 600.00, 10, "Cardio"	1, 1, SYSDATE	1, 101, 1, 600.00
+2, "Durand", "Marie", "58 Avenue Lyon", "marie@exemple.com", "0103040506"	102, "Haltères", 50.00, 30, "Musculation"	2, 2, SYSDATE	2, 102, 2, 50.00
+3, "Leclerc", "Paul", "75 Boulevard Bordeaux", "paul@exemple.com", "0105060708"	103, "Vélo elliptique", 300.00, 15, "Cardio"	3, 3, SYSDATE	3, 103, 1, 300.00
+Étape 1 : Commandes SQL pour insérer les données dans les tables
+Voici les commandes SQL pour insérer les données dans les tables CLIENT, PRODUIT, COMMANDE, et DETAIL_COMMANDE.
+
+1. Insérer des données dans la table CLIENT
+sql
+Copier le code
+INSERT INTO CLIENT (id_client, nom_client, prenom_client, adresse_client, email_client, tel_client)
+VALUES (1, 'Dupont', 'Jean', '42 Rue Paris', 'jean@exemple.com', '0102030405');
+
+INSERT INTO CLIENT (id_client, nom_client, prenom_client, adresse_client, email_client, tel_client)
+VALUES (2, 'Durand', 'Marie', '58 Avenue Lyon', 'marie@exemple.com', '0103040506');
+
+INSERT INTO CLIENT (id_client, nom_client, prenom_client, adresse_client, email_client, tel_client)
+VALUES (3, 'Leclerc', 'Paul', '75 Boulevard Bordeaux', 'paul@exemple.com', '0105060708');
+2. Insérer des données dans la table PRODUIT
+sql
+Copier le code
+INSERT INTO PRODUIT (id_produit, nom_produit, prix_produit, stock_produit, categorie_produit)
+VALUES (101, 'Tapis de course', 600.00, 10, 'Cardio');
+
+INSERT INTO PRODUIT (id_produit, nom_produit, prix_produit, stock_produit, categorie_produit)
+VALUES (102, 'Haltères', 50.00, 30, 'Musculation');
+
+INSERT INTO PRODUIT (id_produit, nom_produit, prix_produit, stock_produit, categorie_produit)
+VALUES (103, 'Vélo elliptique', 300.00, 15, 'Cardio');
+3. Insérer des données dans la table COMMANDE
+sql
+Copier le code
+INSERT INTO COMMANDE (id_commande, id_client, date_commande)
+VALUES (1, 1, SYSDATE);
+
+INSERT INTO COMMANDE (id_commande, id_client, date_commande)
+VALUES (2, 2, SYSDATE);
+
+INSERT INTO COMMANDE (id_commande, id_client, date_commande)
+VALUES (3, 3, SYSDATE);
+4. Insérer des données dans la table DETAIL_COMMANDE
+sql
+Copier le code
+INSERT INTO DETAIL_COMMANDE (id_commande, id_produit, quantite, prix_unitaire)
+VALUES (1, 101, 1, 600.00);
+
+INSERT INTO DETAIL_COMMANDE (id_commande, id_produit, quantite, prix_unitaire)
+VALUES (2, 102, 2, 50.00);
+
+INSERT INTO DETAIL_COMMANDE (id_commande, id_produit, quantite, prix_unitaire)
+VALUES (3, 103, 1, 300.00);
+Explication des commandes :
+CLIENT :
+Trois clients sont insérés avec des informations telles que l'ID, le nom, le prénom, l'adresse, l'email et le téléphone.
+PRODUIT :
+Trois produits sont insérés avec un identifiant, un nom, un prix, un stock disponible, et une catégorie.
+COMMANDE :
+Trois commandes sont insérées, chacune associée à un client (id_client) et avec la date de commande définie sur SYSDATE (date actuelle). L'ID de chaque commande est également spécifié.
+DETAIL_COMMANDE :
+Les détails de chaque commande sont insérés, en associant les produits à leurs commandes respectives avec la quantité commandée et le prix unitaire.
+Conclusion :
+Avec ces commandes SQL, vous pouvez insérer les données dans les tables en respectant la structure définie dans le modèle relationnel. Chaque table reçoit les données appropriées, et les relations entre elles sont respectées via les clés primaires et étrangères. Assurez-vous d'exécuter ces commandes dans votre base de données SQL pour insérer les données avec succès.
+
+
+
+
+
+
+ChatGPT peut faire des erreurs. Envisagez de vérifier les informations im
